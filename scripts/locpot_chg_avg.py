@@ -25,7 +25,7 @@ if len(sys.argv) != 3:
     sys.exit(0)
 
 if not os.path.isfile(sys.argv[1]):
-    print ("\n** ERROR: Input file %s was not found.") % sys.argv[1]
+    print ("\n** ERROR: Input file %s was not found." % (sys.argv[1]))
     sys.exit(0)
 
 # Read information from command line
@@ -54,8 +54,8 @@ del vasp_charge
 if 'LOCPOT' in LOCPOTfile:
     potl=potl*atoms.get_volume()
 
-print ("\nReading file: %s") % LOCPOTfile
-print ("Performing average in %s direction") % direction
+print ("\nReading file: %s" % (LOCPOTfile))
+print ("Performing average in %s direction" % (direction))
 
 # Read in lattice parameters and scale factor
 #---------------------------------------------
@@ -70,8 +70,8 @@ latticelength = latticelength**0.5
 #------------------------
 ngridpts = np.array(potl.shape)
 totgridpts = ngridpts.prod()
-print ("Potential stored on a %dx%dx%d grid") % (ngridpts[0],ngridpts[1],ngridpts[2])
-print ("Total number of points is %d") % totgridpts
+print ("Potential stored on a %dx%dx%d grid" % (ngridpts[0],ngridpts[1],ngridpts[2]))
+print ("Total number of points is %d" % (totgridpts))
 print ("Reading potential data from file...",)
 sys.stdout.flush()
 print ("done.")
@@ -118,7 +118,7 @@ else:
 # Print out average
 #-------------------
 averagefile = LOCPOTfile + filesuffix
-print ("Writing averaged data to file %s...") % averagefile,
+print ("Writing averaged data to file %s..." % (averagefile)),
 sys.stdout.flush()
 outputfile = open(averagefile,"w")
 if 'LOCPOT' in LOCPOTfile:
@@ -135,4 +135,4 @@ print ("done.")
 endtime = process_time()
 runtime = endtime-starttime
 print ("\nEnd of calculation.")
-print ("Program was running for %.2f seconds.") % runtime
+print ("Program was running for %.2f seconds." % (runtime))
